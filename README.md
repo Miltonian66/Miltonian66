@@ -20,11 +20,11 @@ Python Backend Developer — I design and ship production data services, REST AP
 - 📍 Yekaterinburg, Russia · open to relocation (Minsk) and remote
 - 🌐 English — B2
 
-### Featured project
+### Featured projects
+
+**[rag-service](https://github.com/Miltonian66/rag-service)** — Retrieval-Augmented Generation API: ingest documents → retrieve with **pgvector** → answer with cited sources via **Claude**. Async FastAPI + async SQLAlchemy 2.0, swappable embedding/LLM/vector-store providers, SSE streaming, Alembic, Docker, CI, offline test suite.
 
 [Task-Tracker](https://github.com/Miltonian66/Task-Tracker) — async FastAPI task service: PostgreSQL + Redis cache with graceful degradation, unified error envelope with request_id, status state-machine, Alembic migrations, Dockerised (non-root + healthcheck), CI (ruff + pytest), 28 tests.
-
-*Currently building:* a RAG service (FastAPI + pgvector + LLM API) and an async API with background task processing.
 
 > ℹ️ Most of my commercial backend work is under NDA — marketplace integrations (Ozon / Wildberries / Yandex Market), CRM data pipelines, call transcription & AI summarization, ClickHouse analytics. The public repositories here are pet-projects that demonstrate the stack.
 
