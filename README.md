@@ -16,7 +16,7 @@ Python Backend Developer — I design and ship production data services, REST AP
 ### What I do
 
 - ⚙️ Backend: FastAPI · asyncio · SQLAlchemy 2.0 · PostgreSQL · Redis · Celery / RabbitMQ · ClickHouse · Docker · CI/CD · pytest
-- 🤖 AI in production: OpenAI & Whisper integrations, LLM summarization, prompt engineering — and building toward RAG
+- 🤖 AI in production: OpenAI & Whisper integrations, LLM summarization, prompt engineering, RAG (pgvector + Claude)
 - 📍 Yekaterinburg, Russia · open to relocation (Minsk) and remote
 - 🌐 English — B2
 
