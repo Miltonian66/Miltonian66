@@ -27,7 +27,7 @@
 | **[english-lab](https://github.com/Miltonian66/english-lab)** | English-learning platform in Telegram: A1–C2 course, adaptive level test, speaking practice with local Whisper + Piper. Pure stdlib, 239 tests. | Python 3.11 · SQLite · faster-whisper · Piper |
 | **[rag-service](https://github.com/Miltonian66/rag-service)** | RAG API that answers with inline-cited sources. Swappable embedding / LLM / vector-store providers, SSE streaming. | FastAPI · pgvector · Claude |
 | **[Task-Tracker](https://github.com/Miltonian66/Task-Tracker)** | Async task API with Redis cache and graceful degradation, status state machine, request-id error envelope. | FastAPI · PostgreSQL · Redis |
-| **Orbita AI** <sub>private, in production</sub> | AI-first B2B platform: a free-form purchase request becomes supplier SKUs, a human moderator approves. One operations layer behind ~100 HTTP routes and a 29-tool MCP server. 900+ tests. | FastAPI · SQLite · MCP |
+| **Orbita AI**<br><sub>private · in production</sub> | AI-first B2B platform: a free-form purchase request becomes supplier SKUs, a human moderator approves. One operations layer behind ~100 HTTP routes and a 29-tool MCP server. 900+ tests. | FastAPI · SQLite · MCP |
 
 <details>
 <summary><b>More about each project</b></summary>
@@ -47,7 +47,7 @@
 
 ### Stack
 
-| | |
+| Area | Tools |
 |---|---|
 | **Languages** | Go · Python · TypeScript · SQL |
 | **Backend** | net/http · pgx · River · FastAPI · asyncio · SQLAlchemy 2.0 · Celery / RabbitMQ |
