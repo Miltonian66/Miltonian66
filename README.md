@@ -15,20 +15,21 @@
 
 ### Highlights
 
-- 🚀 **From scratch to production.** A multi-tenant communication-funnel platform in Go for an advertising agency: v1 in production, v2 in pilot three weeks after its first commit, 3 000+ tests, one engineer. A CRM for a 100M ₽ investment pool went live on real data 10 days after the kickoff meeting.
-- 🤝 **Built it, sold it.** Orbita AI went from an empty repo to real customer orders in three days, then I licensed it to a B2B supplier through my own sole proprietorship: staged payments, IP kept, monthly support.
+- 🚀 **Go platform, shipped solo.** I built a multi-tenant platform for marketing campaigns and sales funnels, from backend to deployment. The first version is in production; the SaaS version reached pilot in three weeks. More than 3,000 automated tests across the two versions.
+- 🏦 **Financial CRM, live in 10 days.** The first release went live on real data for a 100M ₽ investment pool, replacing ~13 spreadsheets. In a two-person team, I owned the API, front end and deployment; my colleague owned the database schema.
+- 🤝 **Built it, sold it.** I built Orbita AI, put real customer orders through it in three days, then licensed it to a B2B supplier through my own sole proprietorship. I kept the IP and turned delivery into ongoing paid support.
 - 🤖 **AI that actually ships.** LLM pipelines that parse purchase requests, supplier offers and calls, a 31-tool MCP server, RAG with cited sources — and a human, never the model, confirms anything dangerous.
-- 🛡️ **Boring on purpose.** PostgreSQL row-level security, four-eyes on money, durable inbox/outbox, two-VPS failover, Prometheus / Grafana / Loki, backups that get restored on a timer.
+- 🛡️ **I keep production running.** Reliability is part of delivery: PostgreSQL row-level security, a second person's approval for financial transactions, durable inbox/outbox, two-VPS failover, Prometheus / Grafana / Loki, and scheduled backup-restoration checks.
 
 ### Projects
 
 | | What it is | Stack |
 |---|---|---|
-| **[quizmaster](https://github.com/Miltonian66/quizmaster)** | Mock-interview trainer with a grounded LLM-as-judge: versioned rubric, score computed outside the model, no sycophancy. 400 offline tests. | FastAPI · SQLAlchemy · Alembic · FSRS · htmx |
-| **[english-lab](https://github.com/Miltonian66/english-lab)** | English-learning platform in Telegram: A1–C2 course, adaptive level test, speaking practice with local Whisper + Piper. Pure stdlib, 239 tests. | Python 3.11 · SQLite · faster-whisper · Piper |
+| **[quizmaster](https://github.com/Miltonian66/quizmaster)** | Mock-interview trainer with a grounded LLM-as-judge: versioned rubric, score computed outside the model, no sycophancy. [418 offline tests + 4 end-to-end checks](https://github.com/Miltonian66/quizmaster/actions/runs/34236236668). | FastAPI · SQLAlchemy · Alembic · FSRS · htmx |
+| **[english-lab](https://github.com/Miltonian66/english-lab)** | English-learning platform in Telegram: 221 grammar rules and 2,723 exercises across A1–C2, adaptive level test, speaking practice with local Whisper + Piper. Pure stdlib, [416 tests](https://github.com/Miltonian66/english-lab/actions/runs/36968041953). | Python 3.11+ · SQLite · faster-whisper · Piper |
 | **[rag-service](https://github.com/Miltonian66/rag-service)** | RAG API that answers with inline-cited sources. Swappable embedding / LLM / vector-store providers, SSE streaming. | FastAPI · pgvector · Claude |
 | **[Task-Tracker](https://github.com/Miltonian66/Task-Tracker)** | Async task API with Redis cache and graceful degradation, status state machine, request-id error envelope. | FastAPI · PostgreSQL · Redis |
-| **Orbita AI**<br><sub>private · sold to a client</sub> | AI-first B2B platform: a purchase request (photo, Excel, PDF) becomes supplier SKUs, a human moderator approves. 81% of lines accepted without edits. 84 API routes, a 31-tool MCP server, 1 400+ tests. | FastAPI · SQLite · MCP |
+| **Orbita AI**<br><sub>private · sold to a client</sub> | AI-first B2B platform: a purchase request (photo, Excel, PDF) becomes supplier SKUs, a human moderator approves. 81% of lines accepted without edits. 73 registered business operations, a 31-tool MCP server, 1,400+ tests. | FastAPI · SQLite · MCP |
 | **Investor CRM**<br><sub>private · in production</sub> | CRM for an investment car-resale pool: one PostgreSQL ledger instead of ~13 spreadsheets, 11 sections for 7 roles, investor cabinet isolated at the database level, live updates over SSE, AI intake of offers from Telegram chats. | TypeScript · Fastify · React · PostgreSQL |
 
 <details>
@@ -37,7 +38,7 @@
 
 **quizmaster** — asks questions on your weakest topics, grades free-text answers against a versioned rubric. The score is derived deterministically from covered points, not asked from the model; the candidate's answer is wrapped as data to block prompt injection; a provider outage yields `ungraded` instead of a crash. FSRS + confidence EMA decide what to ask next. CLI and htmx web share one service layer; CI runs ruff → mypy → migration drift check → pytest, all offline via a fake provider.
 
-**english-lab** — 221 grammar rules and 1 768 exercises across A1–C2, an adaptive placement test, SM-2 repetition, listening, writing feedback, role-play dialogues and a grounded `/help` assistant over a verifiable knowledge base. No framework: own Telegram Bot API client, per-user sequential queues, isolated worker pools for LLM / STT / TTS, backpressure under Telegram rate limits. LLM provider is one env var: Codex CLI, OpenAI or Anthropic.
+**english-lab** — 221 grammar rules and 2,723 exercises across A1–C2, an adaptive placement test, SM-2 repetition, listening, writing feedback, role-play dialogues and a grounded `/help` assistant over a verifiable knowledge base. No framework: own Telegram Bot API client, per-user sequential queues, isolated worker pools for LLM / STT / TTS, backpressure under Telegram rate limits. LLM provider is one env var: Codex CLI, Claude Code CLI, OpenAI or Anthropic.
 
 **rag-service** — ingest → chunk → embed → retrieve with pgvector → answer with citations via Claude. Async FastAPI + SQLAlchemy 2.0, Alembic, Docker, CI, offline test suite.
 
